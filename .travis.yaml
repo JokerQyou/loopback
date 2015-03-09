@@ -1,0 +1,16 @@
+language: python
+
+python:
+- "2.7"
+
+env:
+global:
+    - secure: "MENTH3dKpndihQ1WAu1Twtv0bUeCcRPgGTbjx6F3lpaWQ9/JCuq+SksRZZ9M\nnCmoPYHmWPRrwj5LKA2P56mWHmyyd1EO7X9MKNI5hSivW3rJIvldkHP259j1\nf5LGNB1hDlfiGbI+/YkNAj07QnSeYCMxfJNMzSM4tfgscp6TuEY="
+
+# command to install dependencies
+install:
+- pip install -r requirements.txt --use-mirrors
+
+#after_script:
+#- env
+#- ./sync-git-to-sae.sh akjhdkasjd@163.com server
