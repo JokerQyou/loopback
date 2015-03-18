@@ -6,7 +6,7 @@ env:
     secure: dZH6KqWYac60h7+lRDDt7gu2fCOVXZL4Y+xqOORPQdJ6ZbPtmdRP0oO/fBC8JDaHsWJnaztikn5ShT/uOCKpIwh5sTbgy2oBJQuWlXKTzygoUPlrF+cSoeQ9/e3byr6zWgbiAykaWYXsqkVb1u6RNhdcU/j5Ho3GZBKKcoYjK9U=
 install:
 - pip install -r requirements.txt
-script: notests
+script: nosetests
 after_script:
 - env
 - ./deploy2sae.sh "Joker.Qyou@gmail.com" server
