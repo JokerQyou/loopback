@@ -1,16 +1,13 @@
 language: python
-
 python:
-- "2.7"
-
+- '2.7'
 env:
-global:
-    - secure: "MENTH3dKpndihQ1WAu1Twtv0bUeCcRPgGTbjx6F3lpaWQ9/JCuq+SksRZZ9M\nnCmoPYHmWPRrwj5LKA2P56mWHmyyd1EO7X9MKNI5hSivW3rJIvldkHP259j1\nf5LGNB1hDlfiGbI+/YkNAj07QnSeYCMxfJNMzSM4tfgscp6TuEY="
-
-# command to install dependencies
+  global:
+    secure: dZH6KqWYac60h7+lRDDt7gu2fCOVXZL4Y+xqOORPQdJ6ZbPtmdRP0oO/fBC8JDaHsWJnaztikn5ShT/uOCKpIwh5sTbgy2oBJQuWlXKTzygoUPlrF+cSoeQ9/e3byr6zWgbiAykaWYXsqkVb1u6RNhdcU/j5Ho3GZBKKcoYjK9U=
 install:
-- pip install -r requirements.txt --use-mirrors
+- pip install -r requirements.txt
+script: notests
+after_script:
+- env
+- ./deploy2sae.sh "Joker.Qyou@gmail.com" server
 
-#after_script:
-#- env
-#- ./sync-git-to-sae.sh akjhdkasjd@163.com server
