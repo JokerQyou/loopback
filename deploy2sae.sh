@@ -46,7 +46,7 @@ svn_add_new() {
 
 echo "Checkout svn repository from SAE"
 # SVN_PASSWD variable come from travis encrypted environment variables
-svn co "$server" "$svn_dir" --username "$username" --password "$SVN_PASSWD" --no-auth-cache || exit 1
+svn co "$server" "$svn_dir" --username "$username" --password "$SVN_PASSWD" --no-auth-cache --non-interactive --trust-server-cert || exit 1
 
 
 echo "Sync from git repository"
