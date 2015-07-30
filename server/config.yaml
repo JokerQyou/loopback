@@ -1,2 +1,4 @@
 name: loopback
 version: 1
+handle:
+- rewrite:if (%{REQUEST_URI} ~ "/generate_204$") goto "$/ [R=204]"
