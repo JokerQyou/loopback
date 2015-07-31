@@ -1,10 +1,22 @@
 # coding: utf-8
+from datetime import datetime
+import traceback
+import sys
+
 from flask import Flask, request
 
 import sae
 
 app = Flask(__name__)
 app.debug = False
+
+
+def extract_traceback():
+    e_type, e_value, tb = sys.exc_info()
+    return '{0} - Exception happend! {1}"{2}\n{3}'.format(
+        datetime.strftime(datetime.now(), '%Y-%m-%d %H:%M:%S'),
+        str(e_type), str(e_value), ''.join(traceback.format_tb(tb))
+    )
 
 
 @app.route('/generate_204', methods=('GET', 'POST', 'OPTIONS', 'DELETE', 'PUT', ))
