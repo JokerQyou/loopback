@@ -60,6 +60,7 @@ def log():
         key = request.form.get('k', None)
         if key is None:
             return '', 400
+        key = str(key)
         count = kv.get(key)
         if count is None:
             kv.set(key, 0)
