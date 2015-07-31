@@ -6,7 +6,7 @@ import sys
 from flask import Flask, request
 
 import sae
-print dir(sae)
+from sae.taskqueue import add_task
 
 app = Flask(__name__)
 app.debug = True
@@ -22,9 +22,9 @@ def extract_traceback():
 
 @app.route('/generate_204', methods=('GET', 'POST', 'OPTIONS', 'DELETE', 'PUT', ))
 def android_portal():
-    app.logger.info(request)
+    app.logger.info(dir(request))
     try:
-        sae.taskqueue.add_task('log', '/log',
+        add_task('log', '/log',
                                payload={
                                    'k': 'android_portal'
                                 },
