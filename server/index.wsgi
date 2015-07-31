@@ -8,7 +8,7 @@ from flask import Flask, request
 import sae
 
 app = Flask(__name__)
-app.debug = False
+app.debug = True
 
 
 def extract_traceback():
