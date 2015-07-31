@@ -8,6 +8,7 @@ from flask import Flask, request
 
 import sae
 from sae.taskqueue import add_task
+import sae.kvdb
 
 app = Flask(__name__)
 app.debug = False
