@@ -16,13 +16,13 @@ app.debug = True
 
 def extract_traceback():
     e_type, e_value, tb = sys.exc_info()
-    return '{0} - Exception happend! {1}"{2}\n{3}'.format(
+    return '{0} - {1}: {2}\n{3}'.format(
         datetime.strftime(datetime.now(), '%Y-%m-%d %H:%M:%S'),
         str(e_type), str(e_value), ''.join(traceback.format_tb(tb))
     )
 
 
-@app.route('/generate_204', methods=('GET', 'POST', 'OPTIONS', 'DELETE', 'PUT', ))
+@app.route('/generate_204', methods=('GET', 'POST', 'OPTIONS', ))
 def android_portal():
     try:
         add_task('log', '/log',
@@ -38,7 +38,7 @@ def android_portal():
 
 @app.route('/', methods=('GET', 'POST', 'OPTIONS', ))
 def index():
-    text = 'lo'
+    text = 'loopback'
     try:
         kv = sae.kvdb.Client()
         portal_count = kv.get('android_portal')
@@ -50,10 +50,10 @@ def index():
     finally:
         if 'kv' in locals():
             kv.disconnect_all()
-        return text, 200
+        return ('<pre>%s</pre>' % text), 200
 
 
-@app.route('/log', methods=('GET', 'POST', ))
+@app.route('/log', methods=('POST', ))
 def log():
     try:
         kv = sae.kvdb.Client()
