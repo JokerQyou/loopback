@@ -3,11 +3,9 @@ python:
 - '2.7'
 env:
   global:
-    secure: "FbssmkgiDQZ93siec7R3YXr7oY5HUGNkCMTtG+8Lse8FhdRBuXIdk4vTbh2hIU8W0vlUl3QgniIvCQpeYOc4k5dTW2wBaW54T4IrlbC9dCEIWqxkoehi6N3vrqowKIWSJYYJyf9YLoatjmAEpNNA84IYYIDzFAUkHQlJCgocbJg="
+  - secure: bwg4VYWDylIdQ+5k/TF/abXgxQ1Lr9JQEfiB/4hvmWasd4uR6+SlFkDMH5GEPriKSixEzCyEMmNwSYvcgFXlFId8xOx9UQmKc0SFqpGpCKVUWFqUA+trMG5ISDIDiJcf84zjt4/8/DaNDGb1aQYVv8oKr+EMojswr+SNwMwSoVA=
 install:
 - pip install -r requirements.txt
 script: nosetests
 after_script:
-- env
 - ./deploy2sae.sh "Joker.Qyou@gmail.com" server
-
