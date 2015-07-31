@@ -11,7 +11,7 @@ from sae.taskqueue import add_task
 import sae.kvdb
 
 app = Flask(__name__)
-app.debug = False
+app.debug = True
 
 
 def extract_traceback():
