@@ -6,6 +6,7 @@ import sys
 from flask import Flask, request
 
 import sae
+print dir(sae)
 
 app = Flask(__name__)
 app.debug = True
@@ -36,7 +37,18 @@ def android_portal():
 
 @app.route('/', methods=('GET', 'POST', 'OPTIONS', ))
 def index():
-    return 'lo', 200
+    text = 'lo'
+    try:
+        kv = sae.kvdb.Client()
+        portal_count = kv.get('android_portal')
+        if portal_count is not None:
+            text += '\nandroid_portal: %d' % portal_count
+    except Exception as e:
+        app.logger.error('取出统计数据时出错：%s', extract_traceback())
+    finally:
+        if 'kv' in locals():
+            kv.disconnect_all()
+        return text, 200
 
 
 @app.route('/log', methods=('GET', 'POST', ))
