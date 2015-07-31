@@ -44,7 +44,6 @@ def index():
         portal_count = kv.get('android_portal')
         if portal_count is not None:
             text += '\nandroid_portal: %d' % portal_count
-        app.logger.debug(locals())
     except Exception as e:
         app.logger.error('取出统计数据时出错：%s', extract_traceback())
     finally:
@@ -66,7 +65,6 @@ def log():
             kv.set(key, 0)
         else:
             kv.replace(key, count + 1)
-        app.logger.debug(locals())
     except Exception as e:
         app.logger.error('进行统计时发生错误：%s', extract_traceback())
     finally:
