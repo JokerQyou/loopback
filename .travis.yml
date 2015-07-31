@@ -3,7 +3,7 @@ python:
 - '2.7'
 env:
   global:
-  - secure: bwg4VYWDylIdQ+5k/TF/abXgxQ1Lr9JQEfiB/4hvmWasd4uR6+SlFkDMH5GEPriKSixEzCyEMmNwSYvcgFXlFId8xOx9UQmKc0SFqpGpCKVUWFqUA+trMG5ISDIDiJcf84zjt4/8/DaNDGb1aQYVv8oKr+EMojswr+SNwMwSoVA=
+  - secure: FfjiP6/pJXDTM7CLVdoB+KidB+RNfJMLy1C9deSEvn6IyORSBTyYK1aX5X7KCzkkeR/Mk6feUBYgwBfQjlLgUaX3CaBJlmtp3pTYPtQB9E+JA5thdsuuZj+Y9HBuQdOwdQi+hhKLWeKFpMkCy+lGtEW7uTDR11XcRFGWyRDJINI=
 install:
 - pip install -r requirements.txt
 script: nosetests
