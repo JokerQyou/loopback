@@ -26,10 +26,10 @@ def extract_traceback():
 def android_portal():
     try:
         add_task('log', '/log',
-                               payload=urlencode({
-                                   'k': 'android_portal'
-                                }),
-                               delay=1)
+                 payload=urlencode({
+                    'k': 'android_portal'
+                 }),
+                 delay=1)
     except Exception as e:
         app.logger.error('添加统计任务时出错：%s', extract_traceback())
     finally:
