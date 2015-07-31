@@ -2,6 +2,7 @@
 from datetime import datetime
 import traceback
 import sys
+from urllib import urlencode
 
 from flask import Flask, request
 
@@ -9,7 +10,7 @@ import sae
 from sae.taskqueue import add_task
 
 app = Flask(__name__)
-app.debug = True
+app.debug = False
 
 
 def extract_traceback():
@@ -22,12 +23,11 @@ def extract_traceback():
 
 @app.route('/generate_204', methods=('GET', 'POST', 'OPTIONS', 'DELETE', 'PUT', ))
 def android_portal():
-    app.logger.info(dir(request))
     try:
         add_task('log', '/log',
-                               payload={
+                               payload=urlencode({
                                    'k': 'android_portal'
-                                },
+                                }),
                                delay=1)
     except Exception as e:
         app.logger.error('添加统计任务时出错：%s', extract_traceback())
